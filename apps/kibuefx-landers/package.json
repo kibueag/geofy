@@ -1,0 +1,1 @@
+{"name": "@geofy/kibuefx-landers", "version": "0.1.0", "private": true, "scripts": {"dev": "echo 'Kibuefx-landers app is running locally'", "build": "mkdir -p dist && cp index.html dist/"}, "devDependencies": {}}
