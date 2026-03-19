@@ -1,43 +1,39 @@
 import express from 'express';
-import dotenv from 'dotenv';
-dotenv.config();
+import cors from 'cors';
+import 'dotenv/config';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const app = express();
+const port = process.env.PORT || 3000;
+
+// Middleware
+app.use(cors());
 app.use(express.json());
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const MODEL_NAME = process.env.MODEL_NAME || 'gpt-5';
-
-if (!OPENAI_API_KEY) {
-  console.warn('Warning: OPENAI_API_KEY not set. Set it in .env for local testing.');
-}
+// Initialize Gemini
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 app.post('/api/chat', async (req, res) => {
   try {
-    const { messages, max_tokens = 600, temperature = 0.2 } = req.body ?? {};
-    if (!Array.isArray(messages)) return res.status(400).json({ error: 'messages must be an array' });
+    const { message } = req.body;
 
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: MODEL_NAME,
-        messages,
-        max_tokens,
-        temperature
-      })
-    });
+    if (!message) {
+      return res.status(400).json({ error: "Message is required" });
+    }
 
-    const data = await response.json();
-    res.status(response.status).json(data);
-  } catch (err: any) {
-    console.error('server error:', err);
-    res.status(500).json({ error: 'proxy error', details: err.message });
+    // Generate content
+    const result = await model.generateContent(message);
+    const response = await result.response;
+    const text = response.text();
+
+    res.json({ reply: text });
+  } catch (error) {
+    console.error("Gemini Error:", error);
+    res.status(500).json({ error: "Failed to connect to AI" });
   }
 });
 
-const port = process.env.PORT || 3001;
-app.listen(port, () => console.log(`Local chat proxy running at http://localhost:${port}`));
+app.listen(port, () => {
+  console.log(`AI Proxy running at http://localhost:${port}`);
+});
