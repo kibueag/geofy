@@ -11,6 +11,7 @@
   "build:shared-chat": "cd packages/shared-chat && npm ci && npm run build",
   "build:prob": "cd apps/probabilistic && npm install && npx vite build",
   "build:kib": "cd apps/kib && npm install && npx vite build"
+  "homepage": "https://14georgeant.github.io/geofy",
 }
   },
   "devDependencies": {
