@@ -1,15 +1,20 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Probabilistic (placeholder)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geofy - Probabilistic</title>
+  <style>
+    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f4f4f9; }
+    .container { text-align: center; padding: 2rem; border-radius: 8px; background: white; shadow: 0 4px 6px rgba(0,0,0,0.1); }
+  </style>
 </head>
 <body>
-  <h1>Probabilistic — Placeholder</h1>
-  <p>Copy your site into apps/probabilistic/ (build output into dist/) or replace this file with your index.html</p>
+  <div class="container">
+    <h1>Geofy Probabilistic</h1>
+    <p>Welcome to the Probabilistic application. The chat widget should appear in the corner shortly.</p>
+  </div>
 
-  <!-- Example of including the widget from the assembled docs/assets/shared-chat/widget.js:
-       Update data-api-base to your deployed serverless proxy URL after Vercel deployment -->
-  <script src="/assets/shared-chat/widget.js" data-api-base="https://your-vercel-proxy.example.com"></script>
+  <script type="module" src="/assets/shared-chat/widget.js" data-api-base="https://your-vercel-proxy.example.com"></script>
 </body>
 </html>
