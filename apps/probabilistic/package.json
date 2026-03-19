@@ -1,1 +1,10 @@
-{"name": "@geofy/probabilistic", "version": "0.1.0", "private": true, "scripts": {"dev": "echo 'Probabilistic app is running locally'", "build": "mkdir -p dist && cp index.html dist/"}, "devDependencies": {}}
+{
+  "name": "@geofy/probabilistic",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo 'Probabilistic app is running locally'",
+    "build": "mkdir -p dist && cp index.html dist/"
+  },
+  "devDependencies": {}
+}
