@@ -4,7 +4,7 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-    "server"
+    "server",
   ],
 "scripts": {
   "build": "npm run build:shared-chat && npm run build:prob && npm run build:kib && node scripts/assemble-site.js",
