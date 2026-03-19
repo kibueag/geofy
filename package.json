@@ -11,6 +11,7 @@
     "build:shared-chat": "cd packages/shared-chat && npm ci && npm run build",
     "build:prob": "cd apps/probabilistic && npm install && npm run build",
     "build:kib": "cd apps/kibuefx-landers && npm install && npm run build"
+    cp packages/shared-chat/dist/widget.js apps/kibuefx-landers/public/assets/shared-chat/widget.js && npm run build:kib
   },
   "homepage": "https://14georgeant.github.io/geofy",
   "devDependencies": {
