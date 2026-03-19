@@ -96,17 +96,16 @@ function styles() {
 `;
 }
 
-async function postChat(apiBase: string, messages: Message[]) {
-  const url = apiBase ? `${apiBase}/api/chat` : '/api/chat';
-  const resp = await fetch(url, {
+async function sendMessageToAI(userMessage: string) {
+  const response = await fetch('http://localhost:3000/api/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages })
+    body: JSON.stringify({ message: userMessage })
   });
-  if (!resp.ok) {
-    const txt = await resp.text();
-    throw new Error(`API error ${resp.status}: ${txt}`);
-  }
+
+  const data = await response.json();
+  return data.reply; // This is the string from Gemini
+}
   const data = await resp.json();
   // adapt to OpenAI response shape
   const assistant = data.choices?.[0]?.message?.content ?? data.choices?.[0]?.text ?? JSON.stringify(data);
