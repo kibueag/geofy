@@ -1,14 +1,22 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>KibueFx Landers — Placeholder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KibueFx Landers</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: #1a1a2e; color: white; display: flex; align-items: center; justify-content: center; height: 100vh; }
+    .hero { text-align: center; border: 1px solid #16213e; padding: 3rem; border-radius: 15px; background: #0f3460; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    h1 { font-size: 2.5rem; margin-bottom: 0.5rem; color: #e94560; }
+    p { color: #8ef6e4; font-size: 1.1rem; }
+  </style>
 </head>
 <body>
-  <h1>KibueFx Landers — Placeholder</h1>
-  <p>Copy your site into apps/kibuefx-landers/ (or place built output in dist/)</p>
+  <div class="hero">
+    <h1>KibueFx Landers</h1>
+    <p>Premium Financial Insights & Probabilistic Analysis</p>
+  </div>
 
-  <!-- Chat widget (update data-api-base after deploying the server) -->
-  <script src="/assets/shared-chat/widget.js" data-api-base="https://geofy-kibuefx-landers.vercel.app/"></script>
+  <script type="module" src="/assets/shared-chat/widget.js" data-api-base="https://geofy-kibuefx-landers.vercel.app/"></script>
 </body>
 </html>
