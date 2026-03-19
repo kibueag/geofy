@@ -1,0 +1,20 @@
+{
+  "name": "geofy",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "server"
+  ],
+  "scripts": {
+    "build": "npm run build:shared-chat && npm run build:prob && npm run build:kib && node scripts/assemble-site.js",
+    "build:shared-chat": "cd packages/shared-chat && npm ci && npm run build",
+    "build:prob": "cd apps/probabilistic && npm install && npm run build",
+    "build:kib": "cd apps/kib && npm install && npm run build"
+  },
+  "homepage": "https://14georgeant.github.io/geofy",
+  "devDependencies": {
+    "concurrently": "^8.0.0",
+    "fs-extra": "^11.0.0"
+  }
+}
