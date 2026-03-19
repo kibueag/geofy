@@ -6,6 +6,6 @@
     "build": "esbuild src/widget.ts --bundle --minify --sourcemap --outfile=dist/widget.js --platform=browser --target=es2017"
   },
   "devDependencies": {
-    "esbuild": "^0.19.0"
+    "esbuild": "^0.27.4"
   }
 }
