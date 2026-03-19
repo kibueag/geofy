@@ -9,7 +9,7 @@
   "scripts": {
     "build": "npm run build:shared-chat && npm run build:prob && npm run build:kib && node scripts/assemble-site.js",
     "build:shared-chat": "cd packages/shared-chat && npm ci && npm run build",
-    "build:prob": "cp packages/shared-chat/dist/widget.js apps/probabilistic/public/assets/shared-chat/widget.js && cd apps/probabilistic && npm install && npm run build",
+    "build:prob": "mkdir -p apps/probabilistic/public/assets/shared-chat && cp packages/shared-chat/dist/widget.js apps/probabilistic/public/assets/shared-chat/widget.js && cd apps/probabilistic && npm install && npm run build",
     "build:kib": "mkdir -p apps/kibuefx-landers/public/assets/shared-chat && cp packages/shared-chat/dist/widget.js apps/kibuefx-landers/public/assets/shared-chat/widget.js && cd apps/kibuefx-landers && npm install && npm run build"
   },
   "homepage": "https://14georgeant.github.io/geofy",
