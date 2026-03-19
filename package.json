@@ -10,22 +10,11 @@
     "build": "npm run build:shared-chat && npm run build:prob && npm run build:kib && node scripts/assemble-site.js",
     "build:shared-chat": "cd packages/shared-chat && npm ci && npm run build",
     "build:prob": "cd apps/probabilistic && npm install && npm run build",
-    "build:kib": "cd apps/kib && npm install && npm run build",
-
-    // ──────────────────────────────────────────────
-    // Nice-to-have additions:
-    "build:all": "npm run build",
-    "dev": "concurrently \"npm run dev --workspace=apps/probabilistic\" \"npm run dev --workspace=apps/kib\"",
-    "clean": "rm -rf apps/*/dist packages/*/dist"
-    // ──────────────────────────────────────────────
+    "build:kib": "cd apps/kib && npm install && npm run build"
   },
   "homepage": "https://14georgeant.github.io/geofy",
   "devDependencies": {
-    "concurrently": "^8.2.2",   // ← update possible
-    "fs-extra": "^11.2.0"       // ← update possible
-  },
-  "engines": {
-    "node": ">=18",
-    "npm": ">=9"
+    "concurrently": "^8.0.0",
+    "fs-extra": "^11.0.0"
   }
 }
